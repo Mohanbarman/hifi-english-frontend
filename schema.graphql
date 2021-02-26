@@ -1,0 +1,266 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type CallMutation {
+    call: CallType
+}
+
+type CallPaginatedType {
+    hasNext: Boolean
+    hasPrev: Boolean
+    objects: [CallType]
+    page: Int
+    pages: Int
+    totalDocs: Int
+}
+
+type CallType {
+    callType: String
+    dateTime: DateTime
+    fromUser: UserType
+    id: ID!
+    minutes: Int
+    toUser: UserType
+}
+
+type ChangePasswordMutation {
+    user: UserType
+}
+
+type CreateOrderMutation {
+    order: OrderType
+}
+
+type CustomObtainJsonWebtoken {
+    payload: GenericScalar!
+    refreshExpiresIn: Int!
+    token: String!
+    user: UserType
+}
+
+type DeleteJSONWebTokenCookie {
+    deleted: Boolean!
+}
+
+type GenerateNewOtpMutation {
+    user: UserType
+}
+
+type GetUserByWebrtcID {
+    profile: UserType
+}
+
+type Mutation {
+    changePassword(newPassword: String!, oldPassword: String!): ChangePasswordMutation
+    createOrder(subscriptionId: String!): CreateOrderMutation
+    createSubscription(discountPrice: Int, minutes: Int, price: Int, title: String): SubscriptionMutation
+    generateNewOtp(email: String!): GenerateNewOtpMutation
+    getUserByWebrtcId(webrtcId: String!): GetUserByWebrtcID
+    login(email: String!, password: String!): CustomObtainJsonWebtoken
+    logout: DeleteJSONWebTokenCookie
+    makeCall(callType: String, minutes: String, toUser: Int): CallMutation
+    refreshToken(token: String): Refresh
+    resetPassword(email: String!, otp: Int!, password: String!): ResetPasswordMutation
+    signUp(city: String, dob: String, email: String!, gender: String, hobbies: String, languageKnown: String, level: String, name: String!, password: String!, phoneNumber: String, preferredTime: String, profession: String, role: String, state: String): SignUpMutation
+    submitFeedback(message: String!, subject: String!): SubmitFeedbackMutation
+    submitReview(comment: String, rating: String!, toUserId: String!): SubmitReviewMutation
+    updateUser(accountNumber: String, city: String, dob: String, documents: JSONString, email: String, gender: String, hobbies: String, ifscCode: String, languageKnown: String, level: String, name: String, numberOfSessions: Int, online: Boolean, phoneNumber: String, profession: String, profileImageUrl: String, role: String, state: String, upiId: String, validityDate: String): UpdateUserProfile
+    verifyOtp(email: String!, otp: Int!): VerifyOtpMuatation
+    verifyPayment(razorpayOrderId: String!, razorpayPaymentId: String!): VerifyOrderMutation
+    verifyToken(token: String): Verify
+}
+
+type OrderType {
+    id: ID!
+    orderId: String
+    payload: String
+    status: String
+    subscription: SubscriptionType
+    user: UserType
+}
+
+type Query {
+    calls(callType: String, fromUser: Int, page: Int, pageSize: Int, toUser: Int): CallPaginatedType
+    subscriptions(id: Int, page: Int, pageSize: Int): SubscriptionPaginatedType
+    users(page: Int, pageSize: Int, role: String): UserPaginatedType
+    viewer(token: String): UserType
+}
+
+type Refresh {
+    payload: GenericScalar!
+    refreshExpiresIn: Int!
+    token: String!
+}
+
+type ResetPasswordMutation {
+    user: UserType
+}
+
+type SignUpMutation {
+    profile: UserType
+}
+
+type SubmitFeedbackMutation {
+    ok: Boolean
+}
+
+type SubmitReviewMutation {
+    ok: Boolean
+}
+
+type SubscriptionMutation {
+    ok: Boolean
+    subscription: SubscriptionType
+}
+
+type SubscriptionPaginatedType {
+    hasNext: Boolean
+    hasPrev: Boolean
+    objects: [SubscriptionType]
+    page: Int
+    pages: Int
+    totalDocs: Int
+}
+
+type SubscriptionType {
+    accountSet: [UserType!]!
+    days: Int
+    discountPrice: Int
+    id: ID!
+    minutes: Int
+    orderSet: [OrderType!]!
+    price: Int
+    sessions: Int
+    title: String
+}
+
+type UpdateUserProfile {
+    profile: UserType
+}
+
+type UserPaginatedType {
+    hasNext: Boolean
+    hasPrev: Boolean
+    objects: [UserType]
+    page: Int
+    pages: Int
+    totalDocs: Int
+}
+
+type UserType {
+    accountNumber: String
+    callDuration: Int
+    city: String
+    dateJoined: DateTime!
+    dob: Date
+    documents: String
+    email: String!
+    gender: AccountGender
+    hobbies: String
+    id: ID!
+    ifscCode: String
+    isActive: Boolean!
+    isAdmin: Boolean!
+    isStaff: Boolean!
+    isSuperuser: Boolean!
+    languageKnown: String
+    lastLogin: DateTime!
+    level: AccountLevel
+    name: String
+    numberOfSessions: Int
+    online: Boolean
+    orderSet: [OrderType!]!
+    otpCreated: DateTime
+    otpExpires: DateTime
+    phone: String
+    preferredTime: String
+    profession: String
+    profileImageUrl: String
+    rating: Float
+    role: AccountRole
+    state: String
+    subscription: SubscriptionType
+    upiId: String
+    username: String
+    validityDate: Date
+    webrtcId: String
+    webrtcPassword: String
+}
+
+type Verify {
+    payload: GenericScalar!
+}
+
+type VerifyOrderMutation {
+    order: OrderType
+}
+
+type VerifyOtpMuatation {
+    user: UserType
+}
+
+"An enumeration."
+enum AccountGender {
+    "f"
+    F
+    "m"
+    M
+    "o"
+    O
+}
+
+"An enumeration."
+enum AccountLevel {
+    "advanced"
+    ADVANCED
+    "beginner"
+    BEGINNER
+    "intermediate"
+    INTERMEDIATE
+}
+
+"An enumeration."
+enum AccountRole {
+    "admin"
+    ADMIN
+    "parent"
+    PARENT
+    "student"
+    STUDENT
+    "teacher"
+    TEACHER
+}
+
+
+"""
+The `DateTime` scalar type represents a DateTime
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar DateTime
+
+"""
+The `Date` scalar type represents a Date
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar Date
+
+"""
+Allows use of a JSON String for input / output from the GraphQL schema.
+
+Use of this type is *not recommended* as you lose the benefits of having a defined, static
+schema (one of the key benefits of GraphQL).
+"""
+scalar JSONString
+
+"""
+The `GenericScalar` scalar type represents a generic
+GraphQL scalar value that could be:
+String, Boolean, Int, Float, List or Object.
+"""
+scalar GenericScalar

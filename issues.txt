@@ -1,0 +1,32 @@
+/******* 2, JAN, 2021 **********/
+* automatic subscription removal // DONE
+* teacher toogle button add role // DONE
+* calling even after cutting the call from teacher side // Happens somtimes
+* razorpay * 100 // DONE
+* implement call // DONE
+* remove out of sessions from teacher // DONE
+* Minutes not getting added on call logs // Done
+* profile picture // DONE
+
+
+/******* 4, JAN, 2021 *******/
+* Crashing on auto call cut based on subscription minutes (release build) (sometimes)
+* Crashing on logout (release build) // DONE
+* Reject call based on subscription minutes is not reflecting on student screen
+* Number of sessions not decrementing when call cutting from teacher side
+* Call not disconnecting if (student has 0 sessions) when making call from teacher side
+* No response on user not answer event on other side
+* App crashing after trying to fetch profile image that doesn't exist
+  on corresponding profiles (connectWithExperts, callbackRequests). // DONE
+* Not displaying placeholder Profile image // DONE
+
+
+/******* 7, JAN, 2021 *******/
+* No callback request 
+  - when call is declined from teacher side. // FIXED
+  - when user not answers.
+
+* Call is not cutting if session limit of subscription is reached.
+* Ready to take call not working properly // DONE
+* Call logs are not sorted based on time
+

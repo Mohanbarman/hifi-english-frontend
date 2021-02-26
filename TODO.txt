@@ -1,0 +1,2 @@
+- Remove training center from teacher home screen
+- Mail template

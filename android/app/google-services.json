@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "825958994129",
+    "project_id": "hifistorage-cde38",
+    "storage_bucket": "hifistorage-cde38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825958994129:android:ad5507abca026b540375f0",
+        "android_client_info": {
+          "package_name": "com.rnvideochat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "825958994129-gqvnirapc6ilcj57pu4pnuqc6addqh8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEXsf6RgB3zKa_aiuUc4MEOPZeE-ADND8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825958994129-gqvnirapc6ilcj57pu4pnuqc6addqh8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
